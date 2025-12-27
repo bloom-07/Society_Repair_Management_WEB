@@ -65,7 +65,7 @@ The following ER diagram shows the relationships between residents, repair reque
 
 ---
 
-## Workflow Diagram (Optional)
+## Workflow Diagram 
 
 The diagram below shows the lifecycle of a repair request from creation to completion:
 
