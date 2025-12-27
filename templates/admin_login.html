@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="auth-card">
+  <h2>Admin Login</h2>
+
+  <input id="user_id" placeholder="Admin ID">
+  <input id="password" type="password" placeholder="Password">
+
+  <button class="btn secondary" onclick="loginAdmin()">Login</button>
+</div>
+
+<script src="/static/js/auth.js"></script>
+{% endblock %}

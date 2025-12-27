@@ -1,0 +1,15 @@
+# Web Framework
+Flask==2.3.0
+Werkzeug==2.3.0
+Jinja2==3.1.2
+
+# Database
+PyMySQL==1.1.0
+mysql-connector-python==8.0.33
+
+# Environment and Configuration
+python-dotenv==1.0.0
+
+# Security and Utilities
+click==8.1.7
+itsdangerous==2.1.2

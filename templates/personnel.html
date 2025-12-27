@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  /* make personnel page use full viewport width for the table and behave like a single column page */
+  .dashboard.personnel-dashboard {
+    max-width: 100vw;
+    padding-left: 12px;
+    padding-right: 12px;
+    grid-template-columns: 1fr; /* force single column so content spans full width */
+  }
+  .dashboard.personnel-dashboard #personnelContainer {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    color: black;
+  }
+  .dashboard.personnel-dashboard .card { max-width: none; }
+
+  /* make table use full width and allow wrapping so cells don't overlap */
+  .dashboard.personnel-dashboard .table-compact {
+    width: 100%;
+    table-layout: auto;
+  }
+  .dashboard.personnel-dashboard .table-compact th,
+  .dashboard.personnel-dashboard .table-compact td {
+    white-space: normal; /* allow wrapping */
+    word-break: break-word;
+    padding: 10px 12px;
+    vertical-align: middle;
+  }
+
+  /* make action buttons smaller and aligned */
+  .dashboard.personnel-dashboard table button {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+
+  /* ensure container scrollbar appears for the table area only */
+  #personnelContainer::-webkit-scrollbar { width: 12px; height: 12px; }
+  #personnelContainer::-webkit-scrollbar-thumb { background: rgba(176, 39, 39, 0.15); border-radius: 8px; }
+</style>
+
+<div class="dashboard personnel-dashboard">
+  <h2>Personnel Management</h2>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+    <div style="display:flex; gap:8px; align-items:center;">
+      <button class="btn" onclick="showAddPersonnelForm()">Add Personnel</button>
+      <input id="personnelSearchTop" class="search-input" type="search" placeholder="Search personnel" />
+    </div>
+    <div>
+      <a href="/admin" class="btn" style="background:#4f46e5;">Back to Dashboard</a>
+    </div>
+  </div>
+
+  <div id="addPersonnelForm" style="display:none; margin-bottom:12px;">
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <input id="new_personnel_id" placeholder="ID" />
+      <input id="new_personnel_name" placeholder="Name" />
+      <input id="new_personnel_email" placeholder="Email" />
+      <input id="new_personnel_contact" placeholder="Contact" />
+      <input id="new_personnel_spec" placeholder="Specialization" />
+      <button onclick="submitNewPersonnel()" class="btn">Save</button>
+      <button onclick="hideAddPersonnelForm()" class="btn" style="background:#f3f4f6;">Cancel</button>
+    </div>
+  </div>
+
+  <div id="personnelContainer" style="width:100%; max-width:none; max-height:75vh; overflow:auto; border:1px solid #e5e7eb; border-radius:8px; padding:12px; margin:0;">
+    <table id="personnelTable" class="table-compact" style="width:100%; table-layout:fixed;">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Specialization</th>
+          <th>Contact</th>
+          <th>Email</th>
+          <th>Available</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="loadingMore" style="text-align:center; padding:12px; display:none;">Loading...</div>
+  </div>
+
+</div>
+
+<script src="/static/js/personnel.js"></script>
+{% endblock %}

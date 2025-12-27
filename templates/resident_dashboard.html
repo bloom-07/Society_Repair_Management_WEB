@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="dashboard">
+
+<div class="resident-header">
+  <div>
+    <h2>Resident Dashboard</h2>
+    <p class="resident-meta">
+      ID: {{ session.user.Resident_ID }} |
+      Name: {{ session.user.Resident_Name }} |
+      Block: {{ session.user.Block_name or '-' }} |
+      Flat: {{ session.user.Flat_No or '-' }}
+    </p>
+  </div>
+</div>
+
+
+  <!-- RAISE REQUEST -->
+  <div class="card">
+    <h3>Raise Repair Request</h3>
+    <textarea id="issue" placeholder="Describe your issue clearly..."></textarea>
+    <button class="btn" onclick="raiseRequest()">Submit</button>
+  </div>
+
+  <!-- MY REQUESTS -->
+  <div class="card">
+    <h3>My Requests</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Request ID</th>
+          <th>Status</th>
+          <th>Issue</th>
+          <th>Req Date</th>
+          <th>Completion Date</th>
+          <th>Personnel ID</th>
+          <th>Personnel</th>
+        </tr>
+      </thead>
+      <tbody id="requestTable"></tbody>
+    </table>
+  </div>
+
+  <!-- PERSONNEL -->
+  <div class="card">
+    <h3>Available Repair Personnel</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Specialization</th>
+          <th>Contact</th>
+          <th>Available</th>
+        </tr>
+      </thead>
+      <tbody id="personnelTable"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="/static/js/resident.js"></script>
+{% endblock %}

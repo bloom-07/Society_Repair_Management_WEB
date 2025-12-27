@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="auth-card">
+  <h2>Resident Login</h2>
+
+  <input id="user_id" placeholder="Resident ID">
+  <input id="password" type="password" placeholder="Password">
+
+  <button class="btn" onclick="loginResident()">Login</button>
+
+  <p class="muted">Not registered yet?</p>
+  <button class="btn outline" onclick="showRegister()">Register</button>
+</div>
+
+<script src="/static/js/auth.js"></script>
+{% endblock %}

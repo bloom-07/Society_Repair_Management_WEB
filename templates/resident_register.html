@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="auth-card">
+  <h2>Resident Registration</h2>
+
+  <input id="resident_id" placeholder="Resident ID">
+  <input id="name" placeholder="Full Name">
+  <input id="email" placeholder="Email">
+  <input id="contact" placeholder="Contact No">
+  <input id="block" placeholder="Block">
+  <input id="flat" placeholder="Flat No">
+  <input id="password" type="password" placeholder="Password">
+
+  <button class="btn" onclick="registerResident()">Register</button>
+  <p class="muted">
+    Already registered?
+    <a href="/login/resident">Login</a>
+  </p>
+</div>
+
+<script src="/static/js/auth.js"></script>
+{% endblock %}
