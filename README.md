@@ -1,5 +1,6 @@
-# 🏢 Society Repair Management System
-
+# Society Repair Management System
+#### Video Demo:  <URL HERE>
+## Description
 ##  Overview
 
 The **Society Repair Management System** is a full-stack web application built to manage repair and maintenance complaints in a residential society. In many housing societies, residents usually report issues through phone calls or informal messages, which makes tracking difficult and often leads to delays. This project solves that problem by providing a centralized digital platform where complaints can be created, tracked, assigned, and resolved in a structured way.
@@ -65,7 +66,7 @@ The following ER diagram shows the relationships between residents, repair reque
 
 ---
 
-## Workflow Diagram (Optional)
+## Workflow Diagram 
 
 The diagram below shows the lifecycle of a repair request from creation to completion:
 
