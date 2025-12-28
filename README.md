@@ -1,5 +1,5 @@
 # ServiceTrack
-#### Video Demo:  <URL HERE>
+#### Video Demo:  <https://youtu.be/PbqJTUrMTcc>
 ## Description 
 
  **ServiceTrack** is a full-stack web application built to manage repair and maintenance complaints in a residential society. In many housing societies, residents usually report issues through phone calls or informal messages, which makes tracking difficult and often leads to delays. This project solves that problem by providing a centralized digital platform where complaints can be created, tracked, assigned, and resolved in a structured way.
@@ -106,7 +106,6 @@ The project follows a modular structure for clarity and maintainability:
   Contains CSS for styling and JavaScript for frontend interaction.
 
 ---
-
 ##  Security Considerations
 
 - Passwords are stored using hashing, not plain text  
@@ -133,9 +132,8 @@ These decisions helped maintain balance between realism and manageable complexit
 - Email or SMS notifications  
 - Improved UI/UX and mobile responsiveness  
 - Cloud deployment (Render or Railway)  
-
+These improvements can be added without changing the core architecture, demonstrating the scalability of the current design.
 ---
 
 ## Conclusion
-
-The ServiceTrack demonstrates a complete, non-trivial web application with meaningful backend logic, relational database design, and real-world workflow modeling. This project fulfills the CS50 Final Project requirements by showcasing problem-solving skills, abstraction, and system design rather than focusing only on visual appearance.
+ServiceTrack demonstrates a complete, non-trivial web application with meaningful backend logic, relational database design, and real-world workflow modeling. This project fulfills the CS50 Final Project requirements by showcasing problem-solving skills, abstraction, and system design rather than focusing only on visual appearance.
