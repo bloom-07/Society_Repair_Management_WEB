@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Society Repair System</title>
+  <title>ServiceTrack</title>
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -10,8 +10,13 @@
     {% if session.user %}
       <a href="/logout" class="logout-btn">Logout</a>
     {% endif %}
-    <h2 class="brand">🏢 Society Repair System</h2>
+    <h2 class="brand">🏢 ServiceTrack</h2>
   </nav>
+  <div class="hero">
+      <p class="hero-text">
+           A simple way to track and manage service requests
+      </p>
+    </div>
 
   <main>
     {% block content %}{% endblock %}

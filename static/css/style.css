@@ -375,3 +375,13 @@ table button:nth-child(3) { background: #03611a; color: #f0ecec; }
   margin-left: auto;
   margin-right: auto;
 }
+.hero {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.hero-text {
+  font-size: 16px;
+  color: #1f2937;
+  margin: 0;
+}
