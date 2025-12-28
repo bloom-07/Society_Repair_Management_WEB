@@ -1,9 +1,11 @@
-# Society Repair Management System
+# ServiceTrack
 #### Video Demo:  <URL HERE>
-## Description
-##  Overview
+## Description 
 
-The **Society Repair Management System** is a full-stack web application built to manage repair and maintenance complaints in a residential society. In many housing societies, residents usually report issues through phone calls or informal messages, which makes tracking difficult and often leads to delays. This project solves that problem by providing a centralized digital platform where complaints can be created, tracked, assigned, and resolved in a structured way.
+ **ServiceTrack** is a full-stack web application built to manage repair and maintenance complaints in a residential society. In many housing societies, residents usually report issues through phone calls or informal messages, which makes tracking difficult and often leads to delays. This project solves that problem by providing a centralized digital platform where complaints can be created, tracked, assigned, and resolved in a structured way.
+
+##  Tech Overview
+
 
 The application is built using **Flask**, **MySQL**, **HTML**, **CSS**, and **JavaScript**. The main focus of this project is on **backend logic, database design, and real-world workflow handling**, rather than visual complexity. This project was developed as the **CS50 Final Project** and demonstrates core computer science concepts such as abstraction, data modeling, and system design.
 
@@ -136,4 +138,4 @@ These decisions helped maintain balance between realism and manageable complexit
 
 ## Conclusion
 
-The Society Repair Management System demonstrates a complete, non-trivial web application with meaningful backend logic, relational database design, and real-world workflow modeling. This project fulfills the CS50 Final Project requirements by showcasing problem-solving skills, abstraction, and system design rather than focusing only on visual appearance.
+The ServiceTrack demonstrates a complete, non-trivial web application with meaningful backend logic, relational database design, and real-world workflow modeling. This project fulfills the CS50 Final Project requirements by showcasing problem-solving skills, abstraction, and system design rather than focusing only on visual appearance.

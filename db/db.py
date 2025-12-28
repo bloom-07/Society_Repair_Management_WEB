@@ -426,6 +426,20 @@ def assign_personnel_to_request(request_id: str, personnel_id: str):
         cur.close()
         conn.close()
 
+def request_id_exists(request_id: str) -> bool:
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute(
+        "SELECT 1 FROM repair_request WHERE Request_ID = %s",
+        (request_id,)
+    )
+
+    exists = cur.fetchone() is not None
+
+    cur.close()
+    conn.close()
+    return exists
 
 def update_request_status(
     request_id: str,

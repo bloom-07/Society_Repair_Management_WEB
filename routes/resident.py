@@ -1,8 +1,10 @@
 from flask import Blueprint, request, jsonify, session
 from db.db import (
     create_repair_request,
+    get_connection,
     get_requests_for_resident,
-    list_personnel
+    list_personnel,
+    request_id_exists
 )
 from datetime import datetime
 import random
@@ -13,9 +15,13 @@ resident_bp = Blueprint("resident", __name__)
 
 # ---------- helper ----------
 def generate_request_id():
-    return "RQ" + datetime.now().strftime("%H%M%S") + "".join(
-        random.choices(string.digits, k=2)
-    )
+    while True:
+        # Generate RQ + 6 digits
+        rid = "RQ" + "".join(random.choices("0123456789", k=6))
+
+        # Check DB uniqueness
+        if not request_id_exists(rid):
+            return rid
 
 
 def login_required():
