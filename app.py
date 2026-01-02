@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify
 from config import SECRET_KEY, DEBUG
 from db.__init__ import initialize_database
@@ -26,7 +28,11 @@ def create_app():
     return app
 
 
+
+
 if __name__ == "__main__":
     initialize_database()
     app = create_app()
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
