@@ -26,20 +26,26 @@ function renderAdminTable(data) {
     if (status === 'completed') tr.classList.add('completed-row');
     if (status === 'in progress' || status === 'inprogress' || status === 'assigned') tr.classList.add('inprogress-row');
 
+    // Determine badge class
+    let badgeClass = 'badge-closed';
+    if (status === 'pending') badgeClass = 'badge-pending';
+    if (status === 'completed') badgeClass = 'badge-completed';
+    if (status === 'in progress' || status === 'inprogress' || status === 'assigned') badgeClass = 'badge-assigned';
+
     tr.innerHTML = `
       <td>${c.Request_ID}</td>
       <td>${c.Resident_Name}</td>
       <td>${c.Flat_No || '-'}</td>
       <td>${c.Personnel_ID || '-'}</td>
       <td>${c.Personnel_Name || '-'}</td>
-      <td>${c.Req_Status}</td>
+      <td><span class="badge ${badgeClass}">${c.Req_Status}</span></td>
       <td>${c.Issue_Description}</td>
       <td>${c.Req_Date || ''}</td>
       <td>${c.Completion_Date || ''}</td>
       <td>
-        <button onclick="assignPersonnel('${c.Request_ID}')">Assign</button>
-        <button onclick="markInProgress('${c.Request_ID}')">Mark In Progress</button>
-        <button onclick="markCompleted('${c.Request_ID}')">Mark Completed</button>
+        <button class="btn sm" onclick="assignPersonnel('${c.Request_ID}')">Assign</button>
+        <button class="btn sm secondary" onclick="markInProgress('${c.Request_ID}')">In Progress</button>
+        <button class="btn sm secondary" onclick="markCompleted('${c.Request_ID}')">Done</button>
       </td>
     `;
     tbody.appendChild(tr);

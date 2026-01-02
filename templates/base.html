@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ServiceTrack</title>
   <link rel="stylesheet" href="/static/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <nav class="navbar">
+    <a href="/" style="text-decoration:none;">
+      <h2 class="brand">🏢 ServiceTrack</h2>
+    </a>
     {% if session.user %}
       <a href="/logout" class="logout-btn">Logout</a>
     {% endif %}
-    <h2 class="brand">🏢 ServiceTrack</h2>
   </nav>
-  <div class="hero">
-      <p class="hero-text">
-           A simple way to track and manage service requests
-      </p>
-    </div>
 
   <main>
     {% block content %}{% endblock %}
   </main>
+
+  <footer style="text-align:center; padding: 20px; color: var(--text-muted); font-size: 0.8rem;">
+    &copy; ServiceTrack 2024. All rights reserved.
+  </footer>
 
 </body>
 </html>

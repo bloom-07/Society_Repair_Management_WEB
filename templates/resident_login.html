@@ -1,16 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="auth-card">
-  <h2>Resident Login</h2>
+<div class="center-container">
+  <div class="auth-wrapper animate-fade-in">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>Resident Login</h2>
+        <p class="text-secondary">Welcome back, please login</p>
+      </div>
 
-  <input id="user_id" placeholder="Resident ID">
-  <input id="password" type="password" placeholder="Password">
+      <div class="form-group">
+        <label>Resident ID</label>
+        <input id="user_id" placeholder="Enter Resident ID">
+      </div>
 
-  <button class="btn" onclick="loginResident()">Login</button>
+      <div class="form-group">
+        <label>Password</label>
+        <input id="password" type="password" placeholder="Enter Password">
+      </div>
 
-  <p class="muted">Not registered yet?</p>
-  <button class="btn outline" onclick="showRegister()">Register</button>
+      <button class="btn" style="width:100%; margin-top:10px;" onclick="loginResident()">Login</button>
+
+      <div class="text-center mt-4">
+        <p class="text-secondary" style="font-size:0.9rem; margin-bottom:10px;">Not registered yet?</p>
+        <button class="btn secondary sm" onclick="showRegister()">Create an Account</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="/static/js/auth.js"></script>

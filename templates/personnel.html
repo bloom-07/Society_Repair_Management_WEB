@@ -1,86 +1,70 @@
 {% extends "base.html" %}
 {% block content %}
-<style>
-  /* make personnel page use full viewport width for the table and behave like a single column page */
-  .dashboard.personnel-dashboard {
-    max-width: 100vw;
-    padding-left: 12px;
-    padding-right: 12px;
-    grid-template-columns: 1fr; /* force single column so content spans full width */
-  }
-  .dashboard.personnel-dashboard #personnelContainer {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    color: black;
-  }
-  .dashboard.personnel-dashboard .card { max-width: none; }
-
-  /* make table use full width and allow wrapping so cells don't overlap */
-  .dashboard.personnel-dashboard .table-compact {
-    width: 100%;
-    table-layout: auto;
-  }
-  .dashboard.personnel-dashboard .table-compact th,
-  .dashboard.personnel-dashboard .table-compact td {
-    white-space: normal; /* allow wrapping */
-    word-break: break-word;
-    padding: 10px 12px;
-    vertical-align: middle;
-  }
-
-  /* make action buttons smaller and aligned */
-  .dashboard.personnel-dashboard table button {
-    padding: 6px 8px;
-    font-size: 13px;
-  }
-
-  /* ensure container scrollbar appears for the table area only */
-  #personnelContainer::-webkit-scrollbar { width: 12px; height: 12px; }
-  #personnelContainer::-webkit-scrollbar-thumb { background: rgba(176, 39, 39, 0.15); border-radius: 8px; }
-</style>
 
 <div class="dashboard personnel-dashboard">
-  <h2>Personnel Management</h2>
-  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-    <div style="display:flex; gap:8px; align-items:center;">
-      <button class="btn" onclick="showAddPersonnelForm()">Add Personnel</button>
-      <input id="personnelSearchTop" class="search-input" type="search" placeholder="Search personnel" />
-    </div>
+
+  <div class="dashboard-header">
+    <h2>Personnel Management</h2>
     <div>
-      <a href="/admin" class="btn" style="background:#4f46e5;">Back to Dashboard</a>
+      <a href="/admin" class="btn secondary">Back to Dashboard</a>
     </div>
   </div>
 
-  <div id="addPersonnelForm" style="display:none; margin-bottom:12px;">
-    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-      <input id="new_personnel_id" placeholder="ID" />
-      <input id="new_personnel_name" placeholder="Name" />
-      <input id="new_personnel_email" placeholder="Email" />
-      <input id="new_personnel_contact" placeholder="Contact" />
-      <input id="new_personnel_spec" placeholder="Specialization" />
-      <button onclick="submitNewPersonnel()" class="btn">Save</button>
-      <button onclick="hideAddPersonnelForm()" class="btn" style="background:#f3f4f6;">Cancel</button>
+  <div class="card mb-4 animate-fade-in">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <h3>Repair Personnel List</h3>
+      <div style="display:flex; gap:12px;">
+        <input id="personnelSearchTop" class="search-input" type="search" placeholder="Search personnel..."
+          style="width:200px;" />
+        <button class="btn sm" onclick="showAddPersonnelForm()">+ Add New</button>
+      </div>
     </div>
-  </div>
 
-  <div id="personnelContainer" style="width:100%; max-width:none; max-height:75vh; overflow:auto; border:1px solid #e5e7eb; border-radius:8px; padding:12px; margin:0;">
-    <table id="personnelTable" class="table-compact" style="width:100%; table-layout:fixed;">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Specialization</th>
-          <th>Contact</th>
-          <th>Email</th>
-          <th>Available</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <div id="loadingMore" style="text-align:center; padding:12px; display:none;">Loading...</div>
+    <!-- ADD PERSONNEL FORM -->
+    <div id="addPersonnelForm"
+      style="display:none; background:var(--bg-muted); padding:20px; border-radius:8px; margin-bottom:20px;">
+      <h4 style="margin-bottom:15px;">New Personnel Details</h4>
+      <div class="grid-2">
+        <div class="form-group mb-4">
+          <input id="new_personnel_id" placeholder="Personnel ID" />
+        </div>
+        <div class="form-group mb-4">
+          <input id="new_personnel_name" placeholder="Full Name" />
+        </div>
+        <div class="form-group mb-4">
+          <input id="new_personnel_email" placeholder="Email Address" />
+        </div>
+        <div class="form-group mb-4">
+          <input id="new_personnel_contact" placeholder="Contact Number" />
+        </div>
+        <div class="form-group mb-4">
+          <input id="new_personnel_spec" placeholder="Specialization (e.g., Electrician)" />
+        </div>
+      </div>
+      <div style="display:flex; gap:12px; margin-top:10px;">
+        <button onclick="submitNewPersonnel()" class="btn">Save Personnel</button>
+        <button onclick="hideAddPersonnelForm()" class="btn secondary">Cancel</button>
+      </div>
+    </div>
+
+    <div id="personnelContainer" class="table-responsive" style="max-height:75vh; overflow:auto;">
+      <table id="personnelTable" class="table-compact">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Specialization</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Available</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="loadingMore" style="text-align:center; padding:12px; display:none; color:var(--text-muted);">Loading...
+      </div>
+    </div>
   </div>
 
 </div>

@@ -1,13 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="auth-card">
-  <h2>Admin Login</h2>
+<div class="center-container">
+  <div class="auth-wrapper animate-fade-in">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>Admin Login</h2>
+        <p class="text-secondary">Enter your credentials to access the dashboard</p>
+      </div>
 
-  <input id="user_id" placeholder="Admin ID">
-  <input id="password" type="password" placeholder="Password">
+      <div class="form-group">
+        <label>Admin ID</label>
+        <input id="user_id" placeholder="Enter Admin ID">
+      </div>
 
-  <button class="btn secondary" onclick="loginAdmin()">Login</button>
+      <div class="form-group">
+        <label>Password</label>
+        <input id="password" type="password" placeholder="Enter Password">
+      </div>
+
+      <button class="btn" style="width:100%; margin-top:10px;" onclick="loginAdmin()">Sign In</button>
+
+      <div class="text-center mt-4">
+        <a href="/" class="text-secondary" style="font-size:0.9rem;">Back to Home</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="/static/js/auth.js"></script>

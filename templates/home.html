@@ -1,19 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="center-box">
-  <p style="font-size: 20px;">Select how you want to continue</p>
+<div class="animate-fade-in">
+  <section class="hero">
+    <h2>Manage Services with Ease</h2>
+    <p class="hero-subtitle">
+      A comprehensive platform for tracking repair requests, managing personnel, and ensuring resident satisfaction.
+    </p>
+  </section>
 
-  <div class="card-row">
-    <div class="card">
-      <h2>Resident</h2>
-      <p>Raise & track repair requests</p>
+  <div class="role-cards">
+    <!-- Resident Card -->
+    <div class="role-card animate-stagger-1">
+      <div class="role-icon">🏠</div>
+      <h3>Resident</h3>
+      <p style="margin-bottom:20px;">Raise repair requests and track their status in real-time.</p>
       <a class="btn" href="/login/resident">Login as Resident</a>
     </div>
 
-    <div class="card">
-      <h2>Admin</h2>
-      <p>Manage requests & personnel</p>
+    <!-- Admin Card -->
+    <div class="role-card animate-stagger-2">
+      <div class="role-icon">🛡️</div>
+      <h3>Admin</h3>
+      <p style="margin-bottom:20px;">Manage tickets, assign personnel, and oversee operations.</p>
       <a class="btn secondary" href="/login/admin">Login as Admin</a>
     </div>
   </div>

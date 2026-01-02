@@ -1,22 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="auth-card">
-  <h2>Resident Registration</h2>
+<div class="center-container" style="padding-top:20px; padding-bottom:20px;">
+  <div class="auth-wrapper animate-fade-in" style="max-width:500px;">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2>Create Account</h2>
+        <p class="text-secondary">Join us to manage your service requests</p>
+      </div>
 
-  <input id="resident_id" placeholder="Resident ID">
-  <input id="name" placeholder="Full Name">
-  <input id="email" placeholder="Email">
-  <input id="contact" placeholder="Contact No">
-  <input id="block" placeholder="Block">
-  <input id="flat" placeholder="Flat No">
-  <input id="password" type="password" placeholder="Password">
+      <div class="form-group">
+        <label>Resident ID (Username)</label>
+        <input id="resident_id" placeholder="Choose a Resident ID">
+      </div>
 
-  <button class="btn" onclick="registerResident()">Register</button>
-  <p class="muted">
-    Already registered?
-    <a href="/login/resident">Login</a>
-  </p>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input id="name" placeholder="John Doe">
+      </div>
+
+      <div class="grid-2" style="margin-bottom:0;">
+        <div class="form-group">
+          <label>Email</label>
+          <input id="email" placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+          <label>Contact No</label>
+          <input id="contact" placeholder="9876543210">
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:0;">
+        <div class="form-group">
+          <label>Block</label>
+          <input id="block" placeholder="Block A">
+        </div>
+        <div class="form-group">
+          <label>Flat No</label>
+          <input id="flat" placeholder="101">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input id="password" type="password" placeholder="Create Password">
+      </div>
+
+      <button class="btn" style="width:100%; margin-top:20px;" onclick="registerResident()">Register Now</button>
+
+      <div class="text-center mt-4">
+        <p class="text-secondary" style="font-size:0.9rem;">
+          Already registered? <a href="/login/resident" style="color:var(--primary-700); font-weight:600;">Login</a>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="/static/js/auth.js"></script>
