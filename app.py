@@ -21,6 +21,11 @@ def create_app():
     app.register_blueprint(resident_bp, url_prefix="/resident")
     app.register_blueprint(admin_bp, url_prefix="/admin")
 
+    @app.route("/")
+    def root():
+        return "ServiceTrack is running", 200
+
+
     @app.route("/health")
     def health():
         return jsonify({"status": "ok"})
